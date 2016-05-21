@@ -39,7 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        double user_lat=0.0,user_lng=0.0;
+        double user_lat=50.0,user_lng=50.0;
         ArrayList<Coord> locations = new ArrayList<>();
 
         // center the camera around the user's location
@@ -51,7 +51,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // create a new marker
             LatLng new_loc = new LatLng(locations.get(i).getLat(), locations.get(i).getLng());
             mMap.addMarker(new MarkerOptions().position(new_loc).title("New Location"));
+            
         }
+        System.out.println("HERE");
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));

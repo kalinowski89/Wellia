@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Wellia</string>
+    <string name="submit">Search</string>
+    <string name="location">Use GPS</string>
+
+    <string-array name="service_type">
+        <item>Mental Health</item>
+        <item>Rehabilitation</item>
+    </string-array>
+
+    <string-array name="distance">
+        <item>20 miles</item>
+        <item>50 miles</item>
+        <item>100 miles</item>
+    </string-array>
 </resources>

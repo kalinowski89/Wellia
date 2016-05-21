@@ -35,11 +35,10 @@ public class dataParse {
             double longitude = finalObject.getDouble("LNG");
             String facility_type = finalObject.getString("TYPE_FACILITY");
 
-            // can use finalObject.get(i) to access the data within each JSONObject
-        }
+             // can use finalObject.get(i).getString()
+             // or      finalObject.get(i).getDouble()
+             // to access the data within each JSONObject
 */
-
-
         return pArray;
     }
 }

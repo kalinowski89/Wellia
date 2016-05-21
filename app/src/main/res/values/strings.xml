@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Wellia</string>
+    <string name="app_name">GoogleMap</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

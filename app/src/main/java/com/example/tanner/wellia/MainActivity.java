@@ -2,8 +2,11 @@ package com.example.tanner.wellia;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Array adapter using type string_array
         Spinner serviceTypeSpinner = (Spinner) findViewById(R.id.type);
+        Button submit = (Button) findViewById(R.id.submit);
         ArrayAdapter<CharSequence> serviceTypeAdapter = ArrayAdapter.createFromResource(
                 this, R.array.service_type, android.R.layout.simple_spinner_item);
         serviceTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -37,18 +41,29 @@ public class MainActivity extends AppCompatActivity {
         final EditText zip = (EditText) findViewById(R.id.zip_code);
 
         ToggleButton locToggle = (ToggleButton) findViewById(R.id.use_loc);
-        locToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    zip.setVisibility(View.VISIBLE);
+        if (locToggle != null) {
+            locToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        zip.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        zip.setVisibility(View.INVISIBLE);
+                    }
                 }
-                else {
-                    zip.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
+            });
+        }
 
+        if (submit != null) {
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setContentView(R.layout.activity_maps);
+
+                }
+            });
+        }
 
 
     }

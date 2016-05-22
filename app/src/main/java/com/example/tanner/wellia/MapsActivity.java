@@ -25,6 +25,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +68,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         StrictMode.setThreadPolicy(policy);
         mMap = googleMap;
 
-        //reading from intent
-        Intent myIntent = getIntent();
-
         double user_lat=50.0,user_lng=50.0;
         ArrayList<Coord> locations = new ArrayList<>();
 
@@ -89,18 +87,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // create a new marker
                 try {
                     JSONObject tmp = (JSONObject)(ja.get(i));
-
-                    //check for spinner status from mainactivity
-                    String status = myIntent.getStringExtra("spinner_status");
-
-                    if(status.equals("Rehabilitation") && tmp.getString("TYPE_FACILITY").equals("SA")) {
-                        LatLng new_loc = new LatLng(tmp.getDouble("LAT"),tmp.getDouble("LNG"));
-                        mMap.addMarker(new MarkerOptions().position(new_loc).title(tmp.getString("NAME1")));
-                    }
-                    if(status.equals("Mental Health")&& tmp.getString("TYPE_FACILITY").equals("MH")) {
-                        LatLng new_loc = new LatLng(tmp.getDouble("LAT"),tmp.getDouble("LNG"));
-                        mMap.addMarker(new MarkerOptions().position(new_loc).title(tmp.getString("NAME1")));
-                    }
+                    System.out.println();
+                    LatLng new_loc = new LatLng(tmp.getDouble("LAT"),tmp.getDouble("LNG"));
+                    mMap.addMarker(new MarkerOptions().position(new_loc).title(tmp.getString("NAME1")));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

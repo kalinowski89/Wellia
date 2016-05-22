@@ -4,7 +4,7 @@
     <string name="location">Use GPS</string>
 
     <string-array name="service_type">
-        <item>Mental Health</item>
+            <item>Mental Health</item>
         <item>Rehabilitation</item>
     </string-array>
 

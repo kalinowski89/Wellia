@@ -22,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Array adapter using type string_array-
-        Spinner serviceTypeSpinner = (Spinner) findViewById(R.id.type);
+        //MH or Rehab spinner
+        final Spinner serviceTypeSpinner = (Spinner) findViewById(R.id.type);
+
         Button submit = (Button) findViewById(R.id.submit);
         ArrayAdapter<CharSequence> serviceTypeAdapter = ArrayAdapter.createFromResource(
                 this, R.array.service_type, android.R.layout.simple_spinner_item);
@@ -70,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     Intent myIntent = new Intent(MainActivity.this,mapsActivityClass);
+                    //checking status of spinner
+                    myIntent.putExtra("spinner_status", serviceTypeSpinner.getSelectedItem().toString());
+                    System.out.println("THIS IS THE SPINNER STRING: " + serviceTypeSpinner.getSelectedItem().toString());
                     startActivity(myIntent);
                     finish();
 

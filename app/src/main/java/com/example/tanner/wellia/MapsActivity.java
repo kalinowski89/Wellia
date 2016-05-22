@@ -1,5 +1,6 @@
 package com.example.tanner.wellia;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -44,7 +45,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onClick(View view) {
                     setContentView(R.layout.activity_main);
                     System.out.println("clicked");
+                    Class mapsActivityClass = null;
+                    try {
+                        mapsActivityClass = Class.forName("com.example.tanner.wellia.MainActivity");
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Intent myIntent = new Intent(MapsActivity.this,mapsActivityClass);
+                    startActivity(myIntent);
                     finish();
+
                 }
             });
         }
@@ -93,9 +103,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-
-
-
 
     }
 }

@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     Intent myIntent = new Intent(MainActivity.this,mapsActivityClass);
                     startActivity(myIntent);
-
+                    finish();
 
                 }
             });

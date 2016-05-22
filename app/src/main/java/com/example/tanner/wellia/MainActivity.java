@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Array adapter using type string_array
+        //Array adapter using type string_arraya
         Spinner serviceTypeSpinner = (Spinner) findViewById(R.id.type);
         Button submit = (Button) findViewById(R.id.submit);
         ArrayAdapter<CharSequence> serviceTypeAdapter = ArrayAdapter.createFromResource(

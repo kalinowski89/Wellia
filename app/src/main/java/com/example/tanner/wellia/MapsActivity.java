@@ -9,6 +9,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import android.widget.Button;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        // create the Filter button
+        Button filter = (Button) findViewById(R.id.filter);
+        // create the List View button
+        Button list_view = (Button) findViewById(R.id.list_view);
+
+        if (filter != null) {
+            filter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setContentView(R.layout.activity_main);
+                    System.out.println("clicked");
+                    finish();
+                }
+            });
+        }
     }
 
 
@@ -56,5 +74,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+
+
     }
 }
